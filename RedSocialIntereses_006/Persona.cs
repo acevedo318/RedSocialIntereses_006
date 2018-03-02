@@ -65,6 +65,15 @@ namespace RedSocialIntereses_006
             return compatibles;
         }
 
+        public static void imprimirListPersonas(List<Persona> persons)
+        {
+            Console.WriteLine("Personas y sus intereses");
+            foreach (var item in persons)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
         public override string ToString()
         {
             String interes = "{";
@@ -73,7 +82,7 @@ namespace RedSocialIntereses_006
                 interes += item.Key +"-"+ item.Value + ",";
             }
             interes += "}";
-            return "nombre: " + nombre + "\n" + interes;
+            return "Nombre: " + nombre + "\n" + interes;
         }
 
     }
