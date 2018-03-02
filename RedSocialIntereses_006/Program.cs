@@ -21,6 +21,7 @@ namespace RedSocialIntereses_006
                 personas.Add(CrearPersona());
             }
 
+            imprimirCompatibilidades(personas);
 
             Console.Read();
         }
@@ -49,6 +50,43 @@ namespace RedSocialIntereses_006
             }
 
             return new Persona(nombre, valors);
+        }
+
+        /// <summary>
+        /// Imprime el nivel de compatibilidad entre personas
+        /// </summary>
+        /// <param name="personas"></param>
+        static void imprimirCompatibilidades(List<Persona> personas)
+        {
+            if (personas.Count > 1) { 
+            Console.WriteLine();
+            String valorImprimir = "Compatibilidad \n";
+                List<String> yaEvaluados = new List<string>();
+            for (int i = 0; i < personas.Count; i++)
+            {
+                    for (int j = 0; j < personas.Count; j++)
+                    {
+                        if (!(i == j))
+                        {
+                            if (!yaEvaluados.Contains(i + "-" + j))
+                            {
+                                valorImprimir += Persona.EvaluarCompatibilidadPersonas(personas.ElementAt(i), personas.ElementAt(j)) + "\n";
+                                yaEvaluados.Add(j + "-" + i);
+                            }
+                           
+                        }
+                        
+                    }
+                
+            }
+            Console.WriteLine(valorImprimir);
+            
+            }
+            else
+            {
+                Console.WriteLine("No hay suficientes personas para evaluar");
+            }
+            Console.WriteLine();
         }
     }
 }
