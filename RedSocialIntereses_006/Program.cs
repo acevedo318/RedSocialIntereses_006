@@ -10,7 +10,19 @@ namespace RedSocialIntereses_006
     {
         static void Main(string[] args)
         {
-           
+            Console.Title = "RedSocialIntereses_006";
+            List<Persona> personas = new List<Persona>();
+            int cantPerso;
+
+            Console.WriteLine("Ingrese el numero de personas a crear");
+            cantPerso = int.Parse(Console.ReadLine());
+            for (int i = 0; i < cantPerso; i++)
+            {
+                personas.Add(CrearPersona());
+            }
+
+
+            Console.Read();
         }
 
 
@@ -25,6 +37,7 @@ namespace RedSocialIntereses_006
         /// <returns>Retorna una persona</returns>
         static Persona CrearPersona()
         {
+            Console.WriteLine();
             Console.WriteLine("Ingrese el nombre de la persona");
             String nombre = Console.ReadLine();
             Dictionary<TipoInteres, String> valors = new Dictionary<TipoInteres, string>();
